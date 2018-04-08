@@ -17,35 +17,23 @@ func (p *Project) create() error {
 		fmt.Printf("プロジェクトディレクトリの作成に失敗しました。\n%v", err)
 		return err
 	}
-	fmt.Printf("プロジェクトディレクトリ %v を作成しました\n", p.name)
+
 	//README作成
-	if err := createReadMe(p.name); err != nil {
+	if err := createFileFromTemplate(p.name, "README.md"); err != nil {
 		return err
 	}
 	//main.go作成
-	return createMain(p.name)
+	return createFileFromTemplate(p.name, "main.go")
 }
 
-func createReadMe(name string) error {
-	file, err := os.Create(name + "/README.md")
+func createFileFromTemplate(projectName string, fileName string) error {
+	file, err := os.Create(projectName + "/" + fileName)
 	defer file.Close()
 	if err != nil {
-		fmt.Printf("README.mdの作成に失敗しました\n%v", err)
+		fmt.Printf("%vの作成に失敗しました\n%v", fileName, err)
 		return err
 	}
-	t := template.Must(template.ParseFiles("templates/README"))
-	t.Execute(file, name)
-	return nil
-}
-
-func createMain(name string) error {
-	file, err := os.Create(name + "/main.go")
-	defer file.Close()
-	if err != nil {
-		fmt.Printf("main.goの作成に失敗しました\n%v", err)
-		return err
-	}
-	t := template.Must(template.ParseFiles("templates/Main"))
-	t.Execute(file, name)
+	t := template.Must(template.ParseFiles("templates/" + fileName))
+	t.Execute(file, projectName)
 	return nil
 }
