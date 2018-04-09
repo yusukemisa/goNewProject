@@ -14,6 +14,8 @@ $ goNewProject {projectName}
   - README.md内はプロジェクト名とinstallationが自動で記載される
 - {projectName}配下にHello World表示するだけのmain.goを作成する
 
+TODO:コマンド化した場合のテンプレートファイルのパスが正しくならない
+
 ### github連携機能(設計中)
 githubのアカウントを登録することで、からプロジェクト作成後自動で
 リモートにプッシュしておいてくれる。
