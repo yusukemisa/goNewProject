@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"text/template"
 )
 
@@ -27,13 +28,13 @@ func (p *Project) create() error {
 }
 
 func createFileFromTemplate(projectName string, fileName string) error {
-	file, err := os.Create(projectName + "/" + fileName)
+	file, err := os.Create(filepath.Join(projectName, fileName))
 	defer file.Close()
 	if err != nil {
 		fmt.Printf("%vの作成に失敗しました\n%v", fileName, err)
 		return err
 	}
-	t := template.Must(template.ParseFiles("templates/" + fileName))
+	t := template.Must(template.ParseFiles(filepath.Join(os.ExpandEnv("${GOPATH}"), "goNewProject/templates", fileName)))
 	t.Execute(file, projectName)
 	return nil
 }

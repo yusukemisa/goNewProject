@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 )
 
 func main() {
@@ -13,11 +14,13 @@ func main() {
 	case 2:
 		projectName = os.Args[1]
 	case 1:
+		fmt.Println(os.ExpandEnv("${GOPATH}"))
+		fmt.Println(filepath.Base(os.Args[0]))
 		log.Fatalln("プロジェクト名を指定してください")
 	default:
 		log.Fatalln("プロジェクト名は複数指定することはできません")
 	}
-	project := Project{name: projectName}
+	project := &Project{name: projectName}
 	if err := project.create(); err != nil {
 		panic(err)
 	}
