@@ -12,6 +12,8 @@ type Project struct {
 	name string
 }
 
+const templatePath= "/src/github.com/yusukemisa/goNewProject/templates"
+
 func (p *Project) create() error {
 	//プロジェクトディレクトリ作成
 	if err := os.Mkdir(p.name, 0755); err != nil {
@@ -38,7 +40,7 @@ func createFileFromTemplate(projectName string, fileName string) error {
 		fmt.Printf("%vの作成に失敗しました\n%v", fileName, err)
 		return err
 	}
-	t := template.Must(template.ParseFiles(filepath.Join(os.ExpandEnv("${GOPATH}"), "goNewProject/templates", fileName)))
+	t := template.Must(template.ParseFiles(filepath.Join(os.ExpandEnv("${GOPATH}"), templatePath, fileName)))
 	t.Execute(file, projectName)
 	return nil
 }

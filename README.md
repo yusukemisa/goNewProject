@@ -4,6 +4,12 @@
 goの空プロジェクトを作成するコマンド
 
 ## 使い方
+入手
+```
+go get -u github.com/yusukemisa/goNewProject
+go install $GOPATH/src/github.com/yusukemisa/goNewProject
+```
+
 空プロジェクトを作りたいディレクトリ上で
 ```
 $ goNewProject {projectName}
