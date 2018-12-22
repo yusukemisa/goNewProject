@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/yusukemisa/goNewProject/tree/master.svg?style=svg)](https://circleci.com/gh/yusukemisa/goNewProject/tree/master)
+
 ## goNewProject
 goの空プロジェクトを作成するコマンド
 
