@@ -24,5 +24,6 @@ func main() {
 	fmt.Printf("プロジェクト %v を作成しました\n", projectName)
 	fmt.Printf("./%v\n", projectName)
 	fmt.Println("  ├── README.md")
+	fmt.Println("  ├── main_test.go")
 	fmt.Println("  └── main.go")
 }

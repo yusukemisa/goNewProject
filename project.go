@@ -24,7 +24,11 @@ func (p *Project) create() error {
 		return err
 	}
 	//main.go作成
-	return createFileFromTemplate(p.name, "main.go")
+	if err := createFileFromTemplate(p.name, "main.go"); err != nil {
+		return err
+	}
+	//main_test.go作成
+	return createFileFromTemplate(p.name, "main_test.go")
 }
 
 func createFileFromTemplate(projectName string, fileName string) error {
