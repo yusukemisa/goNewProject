@@ -26,3 +26,9 @@ $ goNewProject init
 Enter your github account name:xxx
 
 ```
+
+##　開発中・・・
+### テストの雛形
+- circle ciの定義ファイルを作る
+- 環境変数で何かいい感じに指定したらいい感じにプッシュ後にジョブが動くようにする
+- トリガーはプッシュ、タグ作成、定期実行を定義する
