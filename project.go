@@ -40,7 +40,7 @@ func createFileFromTemplate(projectName string, fileName string) error {
 		fmt.Printf("%vの作成に失敗しました\n%v", fileName, err)
 		return err
 	}
-	t := template.Must(template.ParseFiles(filepath.Join(os.ExpandEnv("${GOPATH}"), templatePath, fileName)))
-	t.Execute(file, projectName)
-	return nil
+	return template.Must(template.ParseFiles(
+			filepath.Join(os.ExpandEnv("${GOPATH}"), templatePath, fileName)),
+		).Execute(file, projectName)
 }
