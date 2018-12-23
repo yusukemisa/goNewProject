@@ -6,9 +6,9 @@ jobs:
     working_directory: /go/src/github.com/yusukemisa/goNewProject
     steps:
       - checkout
-      - run: echo '🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣 START BUILD 🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣'
+      - run: echo '🍣🍣🍣🍣🍣🍣🍣🍣🍣 START BUILD 🍣🍣🍣🍣🍣🍣🍣🍣🍣'
       - run: go get -u golang.org/x/lint/golint github.com/golang/dep/cmd/dep
       - run: golint ./...
       - run: go vet ./...
       - run: go test -v -race ./...
-      - run: echo '🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣 END BUILD 🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣'
+      - run: echo '🍣🍣🍣🍣🍣🍣🍣🍣🍣 END BUILD 🍣🍣🍣🍣🍣🍣🍣🍣🍣'
