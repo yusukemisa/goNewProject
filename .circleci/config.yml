@@ -12,4 +12,10 @@ jobs:
       - run: golint ./...
       - run: go vet ./...
       - run: go test -v -race ./...
-      - run: echo '🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣 END BUILD 🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣'
+      - run: echo '🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣 END BUILD 🍣🍣🍣🍣🍣🍣🍣🍣🍣🍣'
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
